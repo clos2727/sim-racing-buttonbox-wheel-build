@@ -55,7 +55,7 @@ rotariesdef rotaries[NUMROTARIES] {
  {2,3,'w','x',},// encoder connected to pin 2 and 3 middle pin is
  {4,5,'y','z',},
  {6,7,'s','t',},
- {8,9,'1','2',},
+ {8,9,'q','r',},
 
  };
 
@@ -88,7 +88,7 @@ const unsigned char ttable[7][4] = {
  // R_CCW_NEXT
  {R_CCW_NEXT, R_CCW_FINAL, R_CCW_BEGIN, R_START},
 };
-byte rowPins[NUMROWS] = {14,15,}; //connect to the row pinouts of thekeypad
+byte rowPins[NUMROWS] = {10,14,15,16}; //connect to the row pinouts of thekeypad
 byte colPins[NUMCOLS] = {18,19,20,21,}; //connect to the column pinouts ofthe keypad
 //initialize an instance of class NewKeypad
 Keypad buttbx = Keypad( makeKeymap(buttons), rowPins, colPins, NUMROWS, NUMCOLS);
@@ -120,11 +120,6 @@ void CheckAllButtons(void) {
  Keyboard.release(key);
  }
  if (key == 'k') {
- Keyboard.write(key);
- delay(150);
- Keyboard.release(key);
- }
- if (key == 'l') {
  Keyboard.write(key);
  delay(150);
  Keyboard.release(key);
@@ -184,6 +179,11 @@ void CheckAllButtons(void) {
  delay(150);
  Keyboard.release(key);
  }
+ if (key == 'l') {
+ Keyboard.write(key);
+ delay(150);
+ Keyboard.release(key);
+ }
 
  }
 /* Call this once in setup(). */
@@ -237,11 +237,11 @@ if(rotaries[i].ccwchar == 'u'){ /* blink led from any rotation/*/
  delay(50);
  delay(50);
  }
- if(rotaries[i].ccwchar == '1'){ /* blink led from any rotation/*/
+ if(rotaries[i].ccwchar == 'q'){ /* blink led from any rotation/*/
  delay(50);
  delay(50);
  }
-  if(rotaries[i].ccwchar == '3'){ /* blink led from any rotation/*/
+  if(rotaries[i].ccwchar == 'r'){ /* blink led from any rotation/*/
  delay(50);
  delay(50);
  }
